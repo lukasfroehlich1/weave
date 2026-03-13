@@ -1,0 +1,571 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1000001 /* WeaveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001; };
+		A1000002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000002; };
+		A1000003 /* GhosttyRuntime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000003; };
+		A1000004 /* GhosttySurfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000004; };
+		A1000005 /* TerminalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000005; };
+		A1000006 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000006; };
+		A1000010 /* GhosttyKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1000010; };
+		A1000011 /* WeaveThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000011; };
+		A1000012 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000012; };
+		A1000013 /* GitWorktree.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000013; };
+		A1000014 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000014; };
+		A1000034 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000034; };
+		A1000037 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000037; };
+
+		A1000015 /* Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000015; };
+		A1000032 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000032; };
+		A1000017 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000017; };
+
+		A1000019 /* PersistedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000019; };
+
+		A1000020 /* String+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000020; };
+		A1000039 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000039; };
+		A100003B /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100003B; };
+		A100003C /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100003C; };
+		A100001B /* AgentStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001B; };
+		A100001C /* HookSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001C; };
+		A100001D /* PRMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001D; };
+		A100001E /* EditorLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001E; };
+		A100001F /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001F; };
+		A1000036 /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000036; };
+		A1000044 /* TitleBarViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000044; };
+		A1000045 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000045; };
+		A1000046 /* WindowChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000046; };
+		A1000047 /* TooltipWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000047; };
+		A1000048 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B1000048; };
+
+		A100003A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B100003A; };
+		A1000030 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = P1000001; };
+		A1000035 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = P1000003; };
+		A1000038 /* ghostty in Resources */ = {isa = PBXBuildFile; fileRef = B1000038; };
+
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B1000001 /* WeaveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaveApp.swift; sourceTree = "<group>"; };
+		B1000002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B1000003 /* GhosttyRuntime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhosttyRuntime.swift; sourceTree = "<group>"; };
+		B1000004 /* GhosttySurfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhosttySurfaceView.swift; sourceTree = "<group>"; };
+		B1000005 /* TerminalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalView.swift; sourceTree = "<group>"; };
+		B1000006 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B1000007 /* Weave-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weave-Bridging-Header.h"; sourceTree = "<group>"; };
+		B1000008 /* Weave.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Weave.entitlements; sourceTree = "<group>"; };
+		B1000009 /* ghostty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ghostty.h; sourceTree = "<group>"; };
+		B1000010 /* GhosttyKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GhosttyKit.xcframework; path = vendor/ghostty/macos/GhosttyKit.xcframework; sourceTree = SOURCE_ROOT; };
+		B1000011 /* WeaveThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaveThread.swift; sourceTree = "<group>"; };
+		B1000012 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		B1000013 /* GitWorktree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitWorktree.swift; sourceTree = "<group>"; };
+		B1000014 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		B1000034 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B1000037 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+
+		B1000015 /* Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pane.swift; sourceTree = "<group>"; };
+		B1000032 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		B1000017 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+
+		B1000019 /* PersistedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistedState.swift; sourceTree = "<group>"; };
+
+		B1000020 /* String+Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Path.swift"; sourceTree = "<group>"; };
+		B1000039 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		B100003B /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		B100003C /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
+		B100003A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B100001B /* AgentStatusMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentStatusMonitor.swift; sourceTree = "<group>"; };
+		B100001C /* HookSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookSetup.swift; sourceTree = "<group>"; };
+		B100001D /* PRMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRMonitor.swift; sourceTree = "<group>"; };
+		B100001E /* EditorLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorLauncher.swift; sourceTree = "<group>"; };
+		B100001F /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
+		B1000036 /* Shortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shortcuts.swift; sourceTree = "<group>"; };
+		B1000038 /* ghostty */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ghostty; sourceTree = "<group>"; };
+		B1000044 /* TitleBarViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBarViews.swift; sourceTree = "<group>"; };
+		B1000045 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		B1000046 /* WindowChrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowChrome.swift; sourceTree = "<group>"; };
+		B1000047 /* TooltipWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipWindow.swift; sourceTree = "<group>"; };
+		B1000048 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		B1000099 /* Weave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weave.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C1000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000010 /* GhosttyKit.xcframework in Frameworks */,
+				A1000030 /* Sparkle in Frameworks */,
+				A1000035 /* KeyboardShortcuts in Frameworks */,
+
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C1000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000038 /* ghostty in Resources */,
+				A100003A /* Assets.xcassets in Resources */,
+				A1000048 /* AppIcon.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		S1000001 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if command -v swiftlint >/dev/null 2>&1; then\n  swiftlint lint --quiet\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXGroup section */
+		D1000001 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				D1000002 /* Weave */,
+				D100000B /* Resources */,
+				B1000010 /* GhosttyKit.xcframework */,
+				D1000099 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D1000002 /* Weave */ = {
+			isa = PBXGroup;
+			children = (
+				D1000003 /* App */,
+				D1000005 /* Model */,
+				D1000006 /* Git */,
+				D1000004 /* Terminal */,
+				D1000007 /* Views */,
+				D100000A /* AgentStatus */,
+				D1000009 /* Extensions */,
+				B1000006 /* ContentView.swift */,
+				B1000009 /* ghostty.h */,
+				B1000007 /* Weave-Bridging-Header.h */,
+				B1000008 /* Weave.entitlements */,
+				B100003A /* Assets.xcassets */,
+				B1000048 /* AppIcon.icns */,
+			);
+			path = Weave;
+			sourceTree = "<group>";
+		};
+		D1000003 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B1000001 /* WeaveApp.swift */,
+				B1000002 /* AppDelegate.swift */,
+				B100001F /* Updater.swift */,
+				B1000036 /* Shortcuts.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D1000004 /* Terminal */ = {
+			isa = PBXGroup;
+			children = (
+				B1000003 /* GhosttyRuntime.swift */,
+				B1000004 /* GhosttySurfaceView.swift */,
+				B1000005 /* TerminalView.swift */,
+			);
+			path = Terminal;
+			sourceTree = "<group>";
+		};
+		D1000005 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B1000011 /* WeaveThread.swift */,
+				B1000012 /* AppState.swift */,
+				B1000015 /* Pane.swift */,
+				B1000032 /* Tab.swift */,
+				B1000017 /* Repo.swift */,
+				B1000019 /* PersistedState.swift */,
+				B100003B /* AppSettings.swift */,
+				B100003C /* SearchState.swift */,
+
+				B100001E /* EditorLauncher.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D1000006 /* Git */ = {
+			isa = PBXGroup;
+			children = (
+				B1000013 /* GitWorktree.swift */,
+				B100001D /* PRMonitor.swift */,
+			);
+			path = Git;
+			sourceTree = "<group>";
+		};
+		D1000007 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1000014 /* SidebarView.swift */,
+				B1000034 /* SettingsView.swift */,
+				B1000037 /* TabBarView.swift */,
+				B1000044 /* TitleBarViews.swift */,
+				B1000045 /* SearchBar.swift */,
+				B1000046 /* WindowChrome.swift */,
+				B1000047 /* TooltipWindow.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D100000A /* AgentStatus */ = {
+			isa = PBXGroup;
+			children = (
+				B100001B /* AgentStatusMonitor.swift */,
+				B100001C /* HookSetup.swift */,
+			);
+			path = AgentStatus;
+			sourceTree = "<group>";
+		};
+		D1000009 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B1000020 /* String+Path.swift */,
+				B1000039 /* Theme.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D1000099 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1000099 /* Weave.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D100000B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B1000038 /* ghostty */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E1000001 /* Weave */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1000003 /* Build configuration list for PBXNativeTarget "Weave" */;
+			buildPhases = (
+				E1000002 /* Sources */,
+				C1000001 /* Frameworks */,
+				C1000002 /* Resources */,
+				S1000001 /* SwiftLint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Weave;
+			packageProductDependencies = (
+				P1000001 /* Sparkle */,
+				P1000003 /* KeyboardShortcuts */,
+
+			);
+			productName = Weave;
+			productReference = B1000099 /* Weave.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F1000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = F1000002 /* Build configuration list for PBXProject "Weave" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D1000001 /* Root */;
+			packageReferences = (
+				R1000001 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				R1000003 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+	
+			);
+			productRefGroup = D1000099 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1000001 /* Weave */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E1000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000001 /* WeaveApp.swift in Sources */,
+				A1000002 /* AppDelegate.swift in Sources */,
+				A1000003 /* GhosttyRuntime.swift in Sources */,
+				A1000004 /* GhosttySurfaceView.swift in Sources */,
+				A1000005 /* TerminalView.swift in Sources */,
+				A1000006 /* ContentView.swift in Sources */,
+				A1000011 /* WeaveThread.swift in Sources */,
+				A1000012 /* AppState.swift in Sources */,
+				A1000013 /* GitWorktree.swift in Sources */,
+				A1000014 /* SidebarView.swift in Sources */,
+				A1000034 /* SettingsView.swift in Sources */,
+				A1000037 /* TabBarView.swift in Sources */,
+
+				A1000015 /* Pane.swift in Sources */,
+				A1000032 /* Tab.swift in Sources */,
+				A1000017 /* Repo.swift in Sources */,
+
+				A1000019 /* PersistedState.swift in Sources */,
+
+				A1000020 /* String+Path.swift in Sources */,
+				A1000039 /* Theme.swift in Sources */,
+				A100003B /* AppSettings.swift in Sources */,
+				A100003C /* SearchState.swift in Sources */,
+				A100001B /* AgentStatusMonitor.swift in Sources */,
+				A100001C /* HookSetup.swift in Sources */,
+				A100001D /* PRMonitor.swift in Sources */,
+				A100001E /* EditorLauncher.swift in Sources */,
+				A100001F /* Updater.swift in Sources */,
+				A1000036 /* Shortcuts.swift in Sources */,
+				A1000044 /* TitleBarViews.swift in Sources */,
+				A1000045 /* SearchBar.swift in Sources */,
+				A1000046 /* WindowChrome.swift in Sources */,
+				A1000047 /* TooltipWindow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		G1000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		G1000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		G1000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Weave/Weave.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/vendor/ghostty/macos",
+				);
+				INFOPLIST_FILE = Weave/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Weave;
+				INFOPLIST_KEY_CFBundleIconFile = AppIcon;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_SUPublicEDKey = "S2BgmCNskMbpwBNNyUhBpRDxwFBaH6SNe7bBp/tHq4w=";
+				INFOPLIST_KEY_SUFeedURL = "https://github.com/lukasfroehlich1/weave/releases/download/appcast/appcast.xml";
+				INFOPLIST_KEY_SUEnableAutomaticChecks = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				CURRENT_PROJECT_VERSION = 1;
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-framework",
+					Metal,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					IOSurface,
+					"-framework",
+					UniformTypeIdentifiers,
+					"-framework",
+					Carbon,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.weave.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Weave/Weave-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		G1000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Weave/Weave.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = TP77KRF2NP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/vendor/ghostty/macos",
+				);
+				INFOPLIST_FILE = Weave/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Weave;
+				INFOPLIST_KEY_CFBundleIconFile = AppIcon;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_SUPublicEDKey = "S2BgmCNskMbpwBNNyUhBpRDxwFBaH6SNe7bBp/tHq4w=";
+				INFOPLIST_KEY_SUFeedURL = "https://github.com/lukasfroehlich1/weave/releases/download/appcast/appcast.xml";
+				INFOPLIST_KEY_SUEnableAutomaticChecks = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				CURRENT_PROJECT_VERSION = 1;
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-framework",
+					Metal,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					IOSurface,
+					"-framework",
+					UniformTypeIdentifiers,
+					"-framework",
+					Carbon,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.weave.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Weave/Weave-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F1000002 /* Build configuration list for PBXProject "Weave" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				G1000001 /* Debug */,
+				G1000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1000003 /* Build configuration list for PBXNativeTarget "Weave" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				G1000003 /* Debug */,
+				G1000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+/* Begin XCRemoteSwiftPackageReference section */
+		R1000001 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+
+		R1000003 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+/* Begin XCSwiftPackageProductDependency section */
+		P1000001 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = R1000001 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+
+		P1000003 /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = R1000003 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F1000001 /* Project object */;
+}

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Format staged Swift files before committing
+STAGED=$(git diff --cached --name-only --diff-filter=ACM | grep '\.swift$')
+if [ -n "$STAGED" ]; then
+    if command -v swiftformat >/dev/null 2>&1; then
+        echo "$STAGED" | xargs swiftformat
+        echo "$STAGED" | xargs git add
+    fi
+fi

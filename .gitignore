@@ -1,0 +1,12 @@
+GhosttyKit.xcframework/
+xcuserdata/
+DerivedData/
+.build/
+*.xcuserstate
+*.p8
+*.p12
+*.cer
+.env
+dist/
+tasks/
+.DS_Store
