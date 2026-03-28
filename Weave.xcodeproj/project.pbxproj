@@ -335,6 +335,9 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Weave;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_SUPublicEDKey = "S2BgmCNskMbpwBNNyUhBpRDxwFBaH6SNe7bBp/tHq4w=";
+				INFOPLIST_KEY_SUFeedURL = "https://github.com/lukasfroehlich1/weave/releases/download/appcast/appcast.xml";
+				INFOPLIST_KEY_SUEnableAutomaticChecks = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -381,6 +384,9 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Weave;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_SUPublicEDKey = "S2BgmCNskMbpwBNNyUhBpRDxwFBaH6SNe7bBp/tHq4w=";
+				INFOPLIST_KEY_SUFeedURL = "https://github.com/lukasfroehlich1/weave/releases/download/appcast/appcast.xml";
+				INFOPLIST_KEY_SUEnableAutomaticChecks = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
