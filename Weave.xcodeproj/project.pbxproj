@@ -29,6 +29,8 @@
 		A100001C /* HookSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001C; };
 		A100001D /* PRMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001D; };
 		A100001E /* EditorLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001E; };
+		A100001F /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001F; };
+		A1000030 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = P1000001; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +42,8 @@
 		B1000006 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B1000007 /* Weave-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weave-Bridging-Header.h"; sourceTree = "<group>"; };
 		B1000008 /* Weave.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Weave.entitlements; sourceTree = "<group>"; };
-		B1000009 /* ghostty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ghostty.h; path = ghostty.h; sourceTree = SOURCE_ROOT; };
-		B1000010 /* GhosttyKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GhosttyKit.xcframework; path = GhosttyKit.xcframework; sourceTree = SOURCE_ROOT; };
+		B1000009 /* ghostty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ghostty.h; sourceTree = "<group>"; };
+		B1000010 /* GhosttyKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GhosttyKit.xcframework; path = vendor/ghostty/macos/GhosttyKit.xcframework; sourceTree = SOURCE_ROOT; };
 		B1000011 /* WeaveThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaveThread.swift; sourceTree = "<group>"; };
 		B1000012 /* ThreadStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadStore.swift; sourceTree = "<group>"; };
 		B1000013 /* GitWorktree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitWorktree.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 		B100001C /* HookSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookSetup.swift; sourceTree = "<group>"; };
 		B100001D /* PRMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRMonitor.swift; sourceTree = "<group>"; };
 		B100001E /* EditorLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorLauncher.swift; sourceTree = "<group>"; };
+		B100001F /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
 		B1000099 /* Weave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -66,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1000010 /* GhosttyKit.xcframework in Frameworks */,
+				A1000030 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				D1000002 /* Weave */,
-				B1000009 /* ghostty.h */,
 				B1000010 /* GhosttyKit.xcframework */,
 				D1000099 /* Products */,
 			);
@@ -94,6 +97,7 @@
 				D100000A /* AgentStatus */,
 				D1000009 /* Extensions */,
 				B1000006 /* ContentView.swift */,
+				B1000009 /* ghostty.h */,
 				B1000007 /* Weave-Bridging-Header.h */,
 				B1000008 /* Weave.entitlements */,
 			);
@@ -105,6 +109,7 @@
 			children = (
 				B1000001 /* WeaveApp.swift */,
 				B1000002 /* AppDelegate.swift */,
+				B100001F /* Updater.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -199,6 +204,9 @@
 			dependencies = (
 			);
 			name = Weave;
+			packageProductDependencies = (
+				P1000001 /* Sparkle */,
+			);
 			productName = Weave;
 			productReference = B1000099 /* Weave.app */;
 			productType = "com.apple.product-type.application";
@@ -222,6 +230,9 @@
 				Base,
 			);
 			mainGroup = D1000001 /* Root */;
+			packageReferences = (
+				R1000001 /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
 			productRefGroup = D1000099 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,6 +268,7 @@
 				A100001C /* HookSetup.swift in Sources */,
 				A100001D /* PRMonitor.swift in Sources */,
 				A100001E /* EditorLauncher.swift in Sources */,
+				A100001F /* Updater.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +328,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/vendor/ghostty/macos",
 				);
 				INFOPLIST_GENERATION_CLASS = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -354,11 +366,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Weave/Weave.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = TP77KRF2NP;
+				ENABLE_HARDENED_RUNTIME = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/vendor/ghostty/macos",
 				);
 				INFOPLIST_GENERATION_CLASS = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -414,6 +430,23 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+/* Begin XCRemoteSwiftPackageReference section */
+		R1000001 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+/* Begin XCSwiftPackageProductDependency section */
+		P1000001 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = R1000001 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F1000001 /* Project object */;
 }

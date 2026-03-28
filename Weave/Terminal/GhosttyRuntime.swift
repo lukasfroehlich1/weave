@@ -59,9 +59,11 @@ final class GhosttyRuntime {
         runtimeConfig.confirm_read_clipboard_cb = { userdata, str, state, request in
             guard let userdata else { return }
             let surface = GhosttySurfaceView.surfaceFromUserdata(userdata)
-            let content = NSPasteboard.general.string(forType: .string) ?? ""
-            content.withCString { ptr in
-                ghostty_surface_complete_clipboard_request(surface, ptr, state, false)
+            DispatchQueue.main.async {
+                let content = NSPasteboard.general.string(forType: .string) ?? ""
+                content.withCString { ptr in
+                    ghostty_surface_complete_clipboard_request(surface, ptr, state, false)
+                }
             }
         }
 

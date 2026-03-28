@@ -30,6 +30,9 @@ class TerminalContainerView: NSView {
     func showSurface(_ surface: GhosttySurfaceView?) {
         guard surface !== currentSurface else { return }
 
+        if let old = currentSurface, old === window?.firstResponder {
+            window?.makeFirstResponder(nil)
+        }
         currentSurface?.removeFromSuperview()
         currentSurface = surface
 

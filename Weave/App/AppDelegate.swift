@@ -1,7 +1,10 @@
 import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
+    let updater = Updater()
+
     func applicationDidFinishLaunching(_ notification: Notification) {
+        updater.start()
     }
 
     func applicationDidBecomeActive(_ notification: Notification) {

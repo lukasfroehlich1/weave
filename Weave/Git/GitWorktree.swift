@@ -52,8 +52,26 @@ enum GitWorktree {
         return worktrees
     }
 
-    static func add(repoPath: String, path: String, branch: String) throws {
-        _ = try run(["git", "-C", repoPath, "worktree", "add", path, "-b", branch, "HEAD"])
+    static func add(repoPath: String, path: String, branch: String, startPoint: String? = nil) throws {
+        var args = ["git", "-C", repoPath, "worktree", "add", path, "-b", branch]
+        if let startPoint { args.append(startPoint) }
+        _ = try run(args)
+        try? run(["git", "-C", path, "config", "--local", "push.autoSetupRemote", "true"])
+    }
+
+    static func hasCommits(repoPath: String) -> Bool {
+        (try? run(["git", "-C", repoPath, "rev-parse", "--verify", "--quiet", "HEAD"])) != nil
+    }
+
+    static func defaultRemoteBranch(repoPath: String) -> String? {
+        let candidates = ["main", "master", "develop", "trunk"]
+        for name in candidates {
+            let ref = "origin/\(name)"
+            if (try? run(["git", "-C", repoPath, "rev-parse", "--verify", "--quiet", ref])) != nil {
+                return ref
+            }
+        }
+        return nil
     }
 
     static func remove(repoPath: String, path: String, force: Bool = false) throws {

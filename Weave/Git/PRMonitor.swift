@@ -20,22 +20,38 @@ enum PRMonitor {
 
     static func fetchPR(repoPath: String, branch: String) -> PRInfo? {
         guard let output = try? run(
-            ["gh", "pr", "list", "--head", branch, "--json", "number,url,state,isDraft", "--state", "all", "--limit", "1"],
+            ["gh", "pr", "list", "--head", branch, "--json", "number,url,state,isDraft", "--state", "all", "--limit", "5"],
             in: repoPath
         ) else { return nil }
 
         guard let data = output.data(using: .utf8),
               let prs = try? JSONDecoder().decode([GHPullRequest].self, from: data),
-              let pr = prs.first,
-              let url = URL(string: pr.url) else { return nil }
+              !prs.isEmpty else { return nil }
 
-        let state: PRState = switch pr.state {
+        let best = prs.max { a, b in
+            let aPriority = Self.priority(a)
+            let bPriority = Self.priority(b)
+            if aPriority != bPriority { return aPriority < bPriority }
+            return a.number < b.number
+        }!
+
+        guard let url = URL(string: best.url) else { return nil }
+
+        let state: PRState = switch best.state {
         case "MERGED": .merged
         case "CLOSED": .closed
-        default: pr.isDraft ? .draft : .open
+        default: best.isDraft ? .draft : .open
         }
 
-        return PRInfo(number: pr.number, url: url, state: state)
+        return PRInfo(number: best.number, url: url, state: state)
+    }
+
+    private static func priority(_ pr: GHPullRequest) -> Int {
+        switch pr.state {
+        case "MERGED": return 1
+        case "CLOSED": return 0
+        default: return 2
+        }
     }
 
     private static var shellPath: String = {

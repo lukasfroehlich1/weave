@@ -14,8 +14,8 @@ Native macOS app (Swift/SwiftUI + libghostty) for managing parallel git worktree
 
 - Git submodule at `vendor/ghostty`
 - Build: `cd vendor/ghostty && zig build -Demit-xcframework=true -Dxcframework-target=native -Doptimize=ReleaseFast`
-- Output symlinked to project root as `GhosttyKit.xcframework`
-- `ghostty.h` copied to project root (avoids modulemap conflict)
+- Xcode references the xcframework directly at `vendor/ghostty/macos/GhosttyKit.xcframework`
+- `ghostty.h` copied to `Weave/` (avoids modulemap conflict with xcframework)
 - Zig 0.15.2 (homebrew)
 
 ## Project Structure

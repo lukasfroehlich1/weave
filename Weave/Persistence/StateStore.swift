@@ -13,26 +13,19 @@ struct AppState: Codable, Sendable {
     var threadSessions: [String: ThreadSession]?
     var threadPRs: [String: CachedPR]?
     var threadTimestamps: [String: Date]?
+    var threadOrder: [String: [String]]?
 
-    static let stateDir = "~/.weave".expandingTilde
-    static let statePath = "~/.weave/state.json".expandingTilde
+    private static let defaultsKey = "AppState"
 
     static func load() -> AppState {
-        guard let data = FileManager.default.contents(atPath: statePath) else {
+        guard let data = UserDefaults.standard.data(forKey: defaultsKey) else {
             return AppState()
         }
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return (try? decoder.decode(AppState.self, from: data)) ?? AppState()
+        return (try? JSONDecoder().decode(AppState.self, from: data)) ?? AppState()
     }
 
     func save() {
-        let fm = FileManager.default
-        try? fm.createDirectory(atPath: Self.stateDir, withIntermediateDirectories: true)
-        let encoder = JSONEncoder()
-        encoder.keyEncodingStrategy = .convertToSnakeCase
-        encoder.outputFormatting = [.prettyPrinted]
-        guard let data = try? encoder.encode(self) else { return }
-        fm.createFile(atPath: Self.statePath, contents: data)
+        guard let data = try? JSONEncoder().encode(self) else { return }
+        UserDefaults.standard.set(data, forKey: Self.defaultsKey)
     }
 }

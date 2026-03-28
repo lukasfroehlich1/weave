@@ -14,6 +14,19 @@ struct WeaveApp: App {
             ContentView()
         }
         .windowToolbarStyle(.unifiedCompact(showsTitle: false))
+        .commands {
+            CommandGroup(after: .appInfo) {
+                Button("Check for Updates...") {
+                    (NSApp.delegate as? AppDelegate)?.updater.checkForUpdates()
+                }
+                .disabled(!((NSApp.delegate as? AppDelegate)?.updater.canCheckForUpdates ?? false))
+
+                Toggle("Beta Updates", isOn: Binding(
+                    get: { (NSApp.delegate as? AppDelegate)?.updater.betaUpdates ?? false },
+                    set: { (NSApp.delegate as? AppDelegate)?.updater.betaUpdates = $0 }
+                ))
+            }
+        }
     }
 
     private static func configureGhosttyEnvironment() {

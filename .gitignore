@@ -3,3 +3,7 @@ xcuserdata/
 DerivedData/
 .build/
 *.xcuserstate
+*.p8
+*.p12
+*.cer
+.env

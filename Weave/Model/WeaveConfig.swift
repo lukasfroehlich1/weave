@@ -5,6 +5,7 @@ struct WeaveConfig: Codable, Sendable {
     var repos: [RepoConfig]?
     var editor: String?
     var branchPrefix: String?
+    var baseBranch: String?
     var deleteBranchOnRemove: Bool?
     var forceRemoveWorktree: Bool?
 

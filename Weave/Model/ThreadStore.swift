@@ -44,6 +44,7 @@ class ThreadStore {
     private var threadTitles: [String: String] = [:]
     private var cachedPRs: [String: CachedPR] = [:]
     private var threadTimestamps: [String: Date] = [:]
+    private var threadOrder: [String: [String]] = [:]
 
     func loadConfig() async {
         config = WeaveConfig.load()
@@ -71,6 +72,7 @@ class ThreadStore {
         savedSessions = state.threadSessions ?? [:]
         cachedPRs = state.threadPRs ?? [:]
         threadTimestamps = state.threadTimestamps ?? [:]
+        threadOrder = state.threadOrder ?? [:]
 
         for repoConfig in config.repos ?? [] {
             let path = repoConfig.path.expandingTilde
@@ -180,6 +182,7 @@ class ThreadStore {
         state.threadSessions = buildSessionSnapshots()
         state.threadPRs = buildPRCache()
         state.threadTimestamps = buildTimestampCache()
+        state.threadOrder = buildThreadOrder()
         state.save()
     }
 
@@ -210,6 +213,14 @@ class ThreadStore {
             }
         }
         return sessions
+    }
+
+    private func buildThreadOrder() -> [String: [String]] {
+        var order: [String: [String]] = [:]
+        for repo in repos {
+            order[repo.path] = repo.threads.map { $0.branch }
+        }
+        return order
     }
 
     // MARK: - Repo management
@@ -285,6 +296,14 @@ class ThreadStore {
                 }
             }
 
+            if let savedOrder = threadOrder[repo.path] {
+                let orderIndex = Dictionary(uniqueKeysWithValues: savedOrder.enumerated().map { ($1, $0) })
+                refreshed.sort { a, b in
+                    let ai = orderIndex[a.branch] ?? Int.max
+                    let bi = orderIndex[b.branch] ?? Int.max
+                    return ai < bi
+                }
+            }
             repo.threads = refreshed
         } catch {
             self.error = "Failed to list worktrees: \(error.localizedDescription)"
@@ -309,13 +328,24 @@ class ThreadStore {
         let wtPath = "\(config.resolvedWorktreeBase)/\(repoName)/\(branch)"
         let parentDir = URL(fileURLWithPath: wtPath).deletingLastPathComponent().path
 
+        let baseBranch = config.baseBranch
         do {
             try await Task.detached {
                 let fm = FileManager.default
                 if !fm.fileExists(atPath: parentDir) {
                     try fm.createDirectory(atPath: parentDir, withIntermediateDirectories: true)
                 }
-                try GitWorktree.add(repoPath: repoPath, path: wtPath, branch: branch)
+                let startPoint: String?
+                if let explicit = baseBranch {
+                    startPoint = explicit
+                } else if let detected = GitWorktree.defaultRemoteBranch(repoPath: repoPath) {
+                    startPoint = detected + "^{commit}"
+                } else if GitWorktree.hasCommits(repoPath: repoPath) {
+                    startPoint = "HEAD"
+                } else {
+                    startPoint = nil
+                }
+                try GitWorktree.add(repoPath: repoPath, path: wtPath, branch: branch, startPoint: startPoint)
             }.value
         } catch {
             self.error = "Failed to create thread: \(error.localizedDescription)"
@@ -328,7 +358,6 @@ class ThreadStore {
         threadTitles[branch] = title
         let thread = WeaveThread(name: title, worktreePath: wtPath, branch: branch)
         repo.threads.append(thread)
-        activeThreadID = thread.id
 
         let tabCommands = repo.defaultTabs
         for (i, cmd) in tabCommands.enumerated() {
@@ -346,11 +375,9 @@ class ThreadStore {
             }
         }
 
-        saveState()
+        thread.tabs.first?.agentStatus = .review
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            self?.focusActiveSurface()
-        }
+        saveState()
     }
 
     func deleteThread(_ thread: WeaveThread) async {

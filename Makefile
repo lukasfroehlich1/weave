@@ -1,22 +1,17 @@
 GHOSTTY_DIR = vendor/ghostty
-XCFRAMEWORK = GhosttyKit.xcframework
-GHOSTTY_XCFRAMEWORK = $(GHOSTTY_DIR)/macos/$(XCFRAMEWORK)
+GHOSTTY_XCFRAMEWORK = $(GHOSTTY_DIR)/macos/GhosttyKit.xcframework
 
 .PHONY: all ghostty app clean
 
 all: ghostty app
 
-ghostty: $(XCFRAMEWORK)
-
-$(XCFRAMEWORK): $(GHOSTTY_XCFRAMEWORK)
-	ln -sfn $(GHOSTTY_XCFRAMEWORK) $(XCFRAMEWORK)
+ghostty: $(GHOSTTY_XCFRAMEWORK)
 
 $(GHOSTTY_XCFRAMEWORK):
 	cd $(GHOSTTY_DIR) && zig build -Demit-xcframework=true -Dxcframework-target=universal -Doptimize=ReleaseFast
 
-app: $(XCFRAMEWORK)
+app: $(GHOSTTY_XCFRAMEWORK)
 	xcodebuild -project Weave.xcodeproj -scheme Weave -configuration Debug build
 
 clean:
 	rm -rf build
-	rm -f $(XCFRAMEWORK)
